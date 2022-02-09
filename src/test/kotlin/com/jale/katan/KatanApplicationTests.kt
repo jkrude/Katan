@@ -1,4 +1,4 @@
-package com.jkth.katan
+package com.jale.katan
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
