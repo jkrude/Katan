@@ -1,4 +1,4 @@
-package com.jale.katan
+package com.jale.katan.springapi
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
