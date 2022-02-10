@@ -1,13 +1,18 @@
 package com.jale.katan.springapi
 
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.web.client.TestRestTemplate
+import org.springframework.boot.test.web.client.postForEntity
 
-@SpringBootTest
-class KatanApplicationTests {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class KatanApplicationTests(@Autowired val restTemplate: TestRestTemplate) {
 
 	@Test
-	fun contextLoads() {
-	}
+	fun testCreateAndRemoveGameEndpoint() {
+		val result = restTemplate.postForEntity<String>("/games")
 
+		restTemplate.delete("/game/${result.body}")
+	}
 }
