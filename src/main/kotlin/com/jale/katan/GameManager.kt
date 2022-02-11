@@ -14,4 +14,9 @@ object GameManager {
         return newId
     }
 
+    fun removeGame(id: Int) {
+        if (id !in games.keys) throw IllegalArgumentException("Id is not a valid game.")
+        games.remove(id)
+    }
+
 }
