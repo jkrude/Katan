@@ -1,16 +1,19 @@
 package com.jale.katan
 
-import com.jale.katan.logic.Game
+import com.jale.katan.logic.BaseGame
+import com.jale.katan.logic.Player
+import com.jale.katan.logic.defaultBoard
 
 object GameManager {
 
     private val idSequence = generateSequence(0) { it + 1 }.iterator()
 
-    private val games: MutableMap<Int, Game> = HashMap()
+    private val games: MutableMap<Int, BaseGame> = HashMap()
 
     fun createNewGame(): Int {
         val newId = idSequence.next()
-        games[newId] = Game()
+        // TODO configure game before instantiation
+        games[newId] = BaseGame(defaultBoard(), (1..4).map { Player(it) })
         return newId
     }
 
